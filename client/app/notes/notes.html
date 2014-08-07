@@ -1,0 +1,44 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Notes:</h1>
+      <form class="togglable-form" role="form" ng-submit="addCard()" ng-show="addingNote">
+        <fieldset>
+          <legend>Add new card:</legend>
+          <div class="form-group">
+            <label>Labels (comma separated):</label>
+            <input class="form-control" ng-model="labels" ng-list />
+          </div>
+          <div class="form-group">
+            <label>Note:</label>
+            <textarea class="form-control" ng-model="note"></textarea>
+          </div>
+          <input type="submit" class="btn btn-success">
+          <a href="#" ng-click="toggleAdd()">Cancel</a>
+        </fieldset>
+      </form>
+        <form role="form" class="form-inline">
+          <div class="form-group">
+            <a class="btn btn-primary" href="#" ng-click="toggleAdd()" ng-hide="addingNote">Add Note</a>
+            <label class="control-label">Search:</label>
+            <input class="form-control" ng-model="q" type="search" placeholder="by content or label"/>
+          </div>
+         </form>
+        <ul class="cards" >
+            <li class="card" ng-repeat="card in cards | filter:q">
+              <span class="front">{{card.note}}</span>
+              <span class="back">{{card.back}}</span>
+              <span class="labels">
+                <ul class="labels">
+                  <li ng-repeat="label in card.labels">{{label.label}}</li>
+              </span>
+            </li>
+            <li class="animate-repeat" ng-if="results.length == 0">
+                <strong>No results found...</strong>
+            </li>
+        </ul>
+    </div>
+  </div>
+</div>
