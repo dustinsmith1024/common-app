@@ -32,8 +32,9 @@ angular.module('commonApp')
         labels: labels
       });
 
-      $scope.note = 'add another sweet note...';
-      $scope.labels = ['new-label'];
+      $scope.note = '';
+      // don't set it because if your putting in alot they might be the same
+      //$scope.labels = ['reading'];
     };
 
     $scope.stuff = function(card){
