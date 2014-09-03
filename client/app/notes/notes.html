@@ -15,6 +15,8 @@
             <label>Note:</label>
             <textarea class="form-control" ng-model="note"></textarea>
           </div>
+          <p>Note Length (keep under 200): {{note.length}}</p>
+          <p>Added in this session: {{added}}</p>
           <input type="submit" class="btn btn-success">
           <a href="#" ng-click="toggleAdd()">Cancel</a>
         </fieldset>
@@ -22,7 +24,7 @@
         <form role="form" class="form-inline">
           <div class="form-group">
             <a class="btn btn-primary" href="#" ng-click="toggleAdd()" ng-hide="addingNote">Add Note</a>
-            <label class="control-label">Search:</label>
+            <label class="control-label">Search ({{cards.length}} cards):</label>
             <input class="form-control" ng-model="q" type="search" placeholder="by content or label"/>
           </div>
          </form>
