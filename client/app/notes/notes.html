@@ -17,6 +17,9 @@
           </div>
           <p>Note Length (keep under 200): {{note.length}}</p>
           <p>Added in this session: {{added}}</p>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" ng-style="addPercent"></div>
+          </div>
           <input type="submit" class="btn btn-success">
           <a href="#" ng-click="toggleAdd()">Cancel</a>
         </fieldset>

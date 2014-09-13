@@ -5,7 +5,6 @@ var Note = require('./note.model');
 
 // Get list of notes
 exports.index = function(req, res) {
-  console.log(req.user);
   Note.find({_user: req.user._id}, function (err, notes) {
     if(err) { return handleError(res, err); }
     return res.json(200, notes);

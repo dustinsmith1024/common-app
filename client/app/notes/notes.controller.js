@@ -8,6 +8,7 @@ angular.module('commonApp')
     $scope.addingNote = false; //keeps add note hidden
 
     $scope.added = 0;
+    $scope.addPercent = {width: "1%"};
 
     $http.get('/api/notes').success(function(notes){
         $scope.cards = notes;
@@ -42,6 +43,9 @@ angular.module('commonApp')
         labels: labels
       }).success(function(){
         $scope.added++;
+        //{'background-color':'blue'}
+        $scope.addPercent = {width: ($scope.added*10).toString() + '%' };
+        console.log($scope.addPercent);
       });
 
       $scope.note = '';
